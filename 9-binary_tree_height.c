@@ -10,6 +10,7 @@
 size_t max(size_t n, size_t m)
 {
 	size_t max = n;
+
 	if (n < m)
 		max = m;
 	return (max);
