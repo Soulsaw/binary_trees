@@ -9,7 +9,10 @@
  */
 size_t max(size_t n, size_t m)
 {
-	return (n ? m : n);
+	size_t max = n;
+	if (n < m)
+		max = m;
+	return (max);
 }
 /**
  * binary_tree_height - This function that measures the height of a
@@ -19,7 +22,9 @@ size_t max(size_t n, size_t m)
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	if (!tree || (!tree->left && !tree->right))
+	if (!tree)
+		return (0);
+	if (!tree->left && !tree->right)
 		return (0);
 	return (max(binary_tree_height(tree->left),
 		binary_tree_height(tree->right)) + 1);
