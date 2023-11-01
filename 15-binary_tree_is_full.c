@@ -2,24 +2,19 @@
 #include <stdlib.h>
 #include "binary_trees.h"
 /**
- * binary_tree_leaves - A function that counts the leaves in a binary tree
- * @tree: A pointer to the root node of the tree to count the number of leaves
+ * binary_tree_nodes - A function that counts the
+ * nodes with at least 1 child in a binary tree
+ * @tree: A pointer to the root node of the tree to count the number of nodes
  * Return: 0 if tree is NULL
  */
-size_t binary_tree_leaves(const binary_tree_t *tree)
+size_t binary_tree_nodes(const binary_tree_t *tree)
 {
-	size_t count_left;
-	size_t count_right;
-	size_t count;
-
 	if (tree == NULL)
 		return (0);
-	if (tree->left == NULL && tree->right == NULL)
+	if ((!tree->left && tree->right) || (tree->left && !tree->right))
 		return (1);
-	count_left = binary_tree_leaves(tree->left);
-	count_right = binary_tree_leaves(tree->right);
-	count = count_left + count_right;
-	return (count);
+	return (binary_tree_nodes(tree->left) +
+		binary_tree_nodes(tree->right));
 }
 /**
  * binary_tree_is_full - This  function that checks if a binary tree is full
@@ -28,12 +23,12 @@ size_t binary_tree_leaves(const binary_tree_t *tree)
  */
 int binary_tree_is_full(const binary_tree_t *tree)
 {
-	int leaves;
+	int is_full;
 
 	if (!tree)
 		return (0);
-	leaves = binary_tree_leaves(tree);
-	if (leaves % 2 == 0)
+	is_full = binary_tree_nodes(tree);
+	if (is_full == 0)
 		return (1);
 	return (0);
 }
