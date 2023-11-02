@@ -27,10 +27,8 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 		return (NULL);
 	check = is_left_or_right_child(node);
 	if (check == 0)
-		if (node->parent->right)
-			return (node->parent->right);
+		return (node->parent->right);
 	if (check == 1)
-		if (node->parent->left)
-			return (node->parent->left);
+		return (node->parent->left);
 	return (NULL);
 }
