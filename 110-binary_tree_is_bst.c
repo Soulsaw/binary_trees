@@ -25,5 +25,7 @@ int binary_util(const binary_tree_t *tree, const int *min, const int *max)
  */
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
+	if (tree == NULL)
+		return (0);
 	return (binary_util(tree, NULL, NULL));
 }
