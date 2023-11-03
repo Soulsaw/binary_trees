@@ -16,7 +16,14 @@ struct binary_tree_s
 	struct binary_tree_s *right;
 };
 typedef struct binary_tree_s binary_tree_t;
-struct queue{
+/**
+ * struct queue - Queue structure
+ *
+ * @tree: Pointer to the binary tree
+ * @next: Pointer to the next queue
+ */
+struct queue
+{
 	const binary_tree_t *tree;
 	struct queue *next;
 };
