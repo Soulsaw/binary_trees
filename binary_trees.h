@@ -15,8 +15,12 @@ struct binary_tree_s
 	struct binary_tree_s *left;
 	struct binary_tree_s *right;
 };
-
 typedef struct binary_tree_s binary_tree_t;
+struct queue{
+	binary_tree_t *tree;
+	struct queue *next;
+};
+typedef struct queue queue_t;
 /* Mandatory task */
 typedef struct binary_tree_s bst_t;
 void binary_tree_print(const binary_tree_t *tree);
